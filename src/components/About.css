@@ -1,0 +1,130 @@
+/* ═══ ABOUT ═════════════════════════════════════════════════════════════════ */
+.about {
+  position: relative;
+  background: var(--bg-secondary);
+}
+
+.about__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* USP Cards */
+.about__usps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.about__usp {
+  text-align: center;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.about__usp::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--accent-gradient);
+  border-radius: 1px;
+}
+
+.about__usp-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+.about__usp-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.about__usp-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Events Ticker ────────────────────────────────────────────────────────── */
+.about__events {
+  width: 100%;
+  overflow: hidden;
+  padding: 2.5rem 0 1.5rem;
+}
+
+.about__events-label {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.about__events-ticker {
+  overflow: hidden;
+}
+
+.about__events-track {
+  display: flex;
+  align-items: center;
+  animation: tickerScroll 30s linear infinite;
+  width: max-content;
+}
+
+.about__events-set {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.about__event-tag {
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  padding: 0.5rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  line-height: 1;
+}
+
+.about__event-dot {
+  color: var(--accent-primary);
+  font-size: 0.45rem;
+  opacity: 0.5;
+  display: inline-block;
+  margin: 0 1.25rem;
+  vertical-align: middle;
+}
+
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-100% / 6)); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about__usps {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
