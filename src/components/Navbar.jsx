@@ -8,6 +8,7 @@ const navLinks = [
   { label: 'Band', href: '#band' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'Repertoire', href: '#repertoire' },
+  { label: 'Venues', href: '#venues' },
   { label: 'Book Us', href: '#book' },
 ];
 

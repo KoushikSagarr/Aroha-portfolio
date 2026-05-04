@@ -1,7 +1,31 @@
 import { motion } from 'framer-motion';
-import { repertoire } from '../data/bandData';
 import { useScrollAnimation, fadeUp, staggerContainer } from '../hooks/useScrollAnimation';
+import { Film, Guitar, Sparkles, Lightbulb, ArrowUpRight } from 'lucide-react';
 import './Repertoire.css';
+
+const reels = [
+  {
+    language: 'Hindi',
+    Icon: Film,
+    song: 'Hindi Cover',
+    url: 'https://www.instagram.com/reel/DUPqa3okfAe/',
+    embedUrl: 'https://www.instagram.com/reel/DUPqa3okfAe/embed/',
+  },
+  {
+    language: 'English',
+    Icon: Guitar,
+    song: 'Señorita',
+    url: 'https://www.instagram.com/reel/DWWKFRWEUcZ/',
+    embedUrl: 'https://www.instagram.com/reel/DWWKFRWEUcZ/embed/',
+  },
+  {
+    language: 'Telugu',
+    Icon: Sparkles,
+    song: 'Telugu Cover',
+    url: 'https://www.instagram.com/reel/DTX7gEZkRdp/',
+    embedUrl: 'https://www.instagram.com/reel/DTX7gEZkRdp/embed/',
+  },
+];
 
 export default function Repertoire() {
   const [ref, controls] = useScrollAnimation();
@@ -23,25 +47,44 @@ export default function Repertoire() {
           </p>
         </motion.div>
 
-        <motion.div className="repertoire__genres" variants={staggerContainer}>
-          {repertoire.map((genre, i) => (
-            <motion.div key={i} className="repertoire__genre glass-card" variants={fadeUp}>
-              <div className="repertoire__genre-header">
-                <span className="repertoire__genre-icon">{genre.icon}</span>
-                <h3 className="repertoire__genre-name">{genre.genre}</h3>
+        <motion.div className="repertoire__reels" variants={staggerContainer}>
+          {reels.map((reel, i) => (
+            <motion.div key={i} className="repertoire__reel glass-card" variants={fadeUp}>
+              <div className="repertoire__reel-header">
+                <div className="repertoire__reel-icon">
+                  <reel.Icon size={20} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h3 className="repertoire__reel-language">{reel.language}</h3>
+                  <p className="repertoire__reel-song">{reel.song}</p>
+                </div>
               </div>
-              <div className="repertoire__songs">
-                {genre.songs.map((song, j) => (
-                  <span key={j} className="repertoire__song">{song}</span>
-                ))}
+              <div className="repertoire__reel-embed">
+                <iframe
+                  src={reel.embedUrl}
+                  title={`AROHA Music — ${reel.language} performance`}
+                  allowFullScreen
+                  loading="lazy"
+                  frameBorder="0"
+                  scrolling="no"
+                />
               </div>
-              <p className="repertoire__more">+ many more</p>
+              <a
+                href={reel.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="repertoire__reel-link"
+              >
+                <span>Watch on Instagram</span>
+                <ArrowUpRight size={14} strokeWidth={2} />
+              </a>
             </motion.div>
           ))}
         </motion.div>
 
         <motion.p className="repertoire__note" variants={fadeUp}>
-          💡 Custom setlists available — tell us your favorites and we'll tailor the experience to your event!
+          <Lightbulb size={16} strokeWidth={2} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px', color: 'var(--accent-primary)' }} />
+          Custom setlists available — tell us your favorites and we'll tailor the experience to your event!
         </motion.p>
       </motion.div>
     </section>

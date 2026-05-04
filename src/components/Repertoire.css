@@ -4,7 +4,7 @@
   background: var(--bg-primary);
 }
 
-.repertoire__genres {
+.repertoire__reels {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
@@ -12,57 +12,103 @@
   margin-bottom: 2rem;
 }
 
-.repertoire__genre {
-  padding: clamp(1.5rem, 3vw, 2rem) !important;
+.repertoire__reel {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1rem, 2vw, 1.5rem) !important;
+  overflow: hidden;
 }
 
-.repertoire__genre-header {
+.repertoire__reel-header {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1.25rem;
-  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.85rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.repertoire__genre-icon {
-  font-size: 1.8rem;
-}
-
-.repertoire__genre-name {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 700;
-}
-
-.repertoire__songs {
+.repertoire__reel-icon {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--accent-subtle);
+  border: 1px solid rgba(212, 168, 83, 0.1);
+  color: var(--accent-primary);
+  flex-shrink: 0;
 }
 
-.repertoire__song {
-  display: inline-block;
-  padding: 0.35rem 0.85rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 20px;
+.repertoire__reel-language {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.repertoire__reel-song {
   font-size: 0.8rem;
   color: var(--text-secondary);
-  transition: all var(--transition-fast);
+  margin-top: 0.15rem;
 }
 
-.repertoire__song:hover {
-  background: var(--accent-subtle);
-  border-color: rgba(212, 168, 83, 0.2);
-  color: var(--text-accent);
+/* ── Instagram Embed ───────────────────────────────────────────────────── */
+.repertoire__reel-embed {
+  position: relative;
+  width: 100%;
+  /* Instagram reel aspect ratio ~9:16, but embed includes header/footer */
+  padding-bottom: 130%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  flex: 1;
 }
 
-.repertoire__more {
-  margin-top: 1rem;
+.repertoire__reel-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+/* ── Watch Link ────────────────────────────────────────────────────────── */
+.repertoire__reel-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-display);
   font-size: 0.8rem;
-  font-style: italic;
-  color: var(--text-muted);
+  font-weight: 600;
+  color: var(--text-accent);
+  background: var(--accent-subtle);
+  border: 1px solid rgba(212, 168, 83, 0.12);
+  border-radius: 50px;
+  transition: all var(--transition-smooth);
+  align-self: flex-start;
+  text-decoration: none;
+}
+
+.repertoire__reel-link:hover {
+  background: rgba(212, 168, 83, 0.15);
+  border-color: rgba(212, 168, 83, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(212, 168, 83, 0.1);
+}
+
+.repertoire__reel-link svg {
+  transition: transform var(--transition-fast);
+}
+
+.repertoire__reel-link:hover svg {
+  transform: translate(2px, -2px);
 }
 
 .repertoire__note {
@@ -78,9 +124,23 @@
   line-height: 1.6;
 }
 
-/* Responsive */
+/* ── Responsive ────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .repertoire__reels {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .repertoire__genres {
+  .repertoire__reels {
     grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .repertoire__reel-embed {
+    padding-bottom: 140%;
   }
 }

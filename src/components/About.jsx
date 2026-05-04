@@ -1,7 +1,14 @@
 import { motion } from 'framer-motion';
 import { bandInfo } from '../data/bandData';
 import { useScrollAnimation, fadeUp, staggerContainer } from '../hooks/useScrollAnimation';
+import { Music, Briefcase, Flame } from 'lucide-react';
 import './About.css';
+
+const iconMap = {
+  music: Music,
+  briefcase: Briefcase,
+  flame: Flame,
+};
 
 export default function About() {
   const [ref, controls] = useScrollAnimation();
@@ -22,13 +29,18 @@ export default function About() {
         </motion.div>
 
         <motion.div className="about__usps" variants={staggerContainer}>
-          {bandInfo.usp.map((item, i) => (
-            <motion.div key={i} className="about__usp glass-card" variants={fadeUp}>
-              <span className="about__usp-icon">{item.icon}</span>
-              <h3 className="about__usp-title">{item.title}</h3>
-              <p className="about__usp-text">{item.text}</p>
-            </motion.div>
-          ))}
+          {bandInfo.usp.map((item, i) => {
+            const IconComponent = iconMap[item.icon];
+            return (
+              <motion.div key={i} className="about__usp glass-card" variants={fadeUp}>
+                <div className="about__usp-icon">
+                  {IconComponent && <IconComponent size={24} strokeWidth={1.5} />}
+                </div>
+                <h3 className="about__usp-title">{item.title}</h3>
+                <p className="about__usp-text">{item.text}</p>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </motion.div>
 

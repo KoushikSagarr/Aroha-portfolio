@@ -4,6 +4,7 @@ import About from './components/About';
 import BandMembers from './components/BandMembers';
 import Gallery from './components/Gallery';
 import Repertoire from './components/Repertoire';
+import Venues from './components/Venues';
 import BookUs from './components/BookUs';
 import Footer from './components/Footer';
 import './App.css';
@@ -22,6 +23,8 @@ function App() {
         <Gallery />
         <div className="section-divider" />
         <Repertoire />
+        <div className="section-divider" />
+        <Venues />
         <div className="section-divider" />
         <BookUs />
       </main>
