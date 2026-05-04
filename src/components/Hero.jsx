@@ -59,7 +59,7 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <img src={logos.dark3D} alt="AROHA Music" className="hero__logo" />
+          <img src={logos.dark3D} alt="AROHA Music" className="hero__logo" fetchpriority="high" />
         </motion.div>
 
         {/* Two-line headline */}

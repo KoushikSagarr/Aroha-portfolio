@@ -18,7 +18,7 @@ export default function Footer() {
         animate={controls}
       >
         <motion.div className="footer__top" variants={fadeUp}>
-          <img src={logos.white} alt="AROHA Music" className="footer__logo" />
+          <img src={logos.white} alt="AROHA Music" className="footer__logo" loading="lazy" decoding="async" />
           <p className="footer__tagline">{bandInfo.tagline}</p>
           <div className="footer__social-links">
             <a

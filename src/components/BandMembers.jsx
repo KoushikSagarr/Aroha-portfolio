@@ -32,6 +32,7 @@ export default function BandMembers() {
                   alt={member.name}
                   className="band__card-img"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="band__card-overlay" />
               </div>
