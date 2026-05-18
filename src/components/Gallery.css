@@ -57,6 +57,11 @@
   transform: scale(1.06);
 }
 
+/* Adjust focal point for specific images so faces don't get cropped */
+.collage__item--9 img {
+  object-position: top;
+}
+
 /* Hover overlay with expand icon */
 .collage__overlay {
   position: absolute;
