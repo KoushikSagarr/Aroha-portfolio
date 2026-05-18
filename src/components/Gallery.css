@@ -58,7 +58,7 @@
 }
 
 /* Adjust focal point for specific images so faces don't get cropped */
-.collage__item--9 img {
+.collage__item--8 img {
   object-position: top;
 }
 
