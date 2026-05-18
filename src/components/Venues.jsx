@@ -8,6 +8,20 @@ import './Venues.css';
 
 const venues = [
   {
+    name: 'BEER CARTEL',
+    area: 'Sattva Knowledge Park',
+    type: 'Restobar',
+    mapUrl: 'https://www.google.com/maps/search/The+Beer+Cartel+Sattva+Knowledge+Park+Hyderabad',
+    Icon: Beer,
+  },
+  {
+    name: 'ARTISTRY',
+    area: 'Novotel HICC, Hitech City',
+    type: 'Live Music Venue',
+    mapUrl: 'https://www.google.com/maps/search/Artistry+Novotel+HICC+Hitech+City+Hyderabad',
+    Icon: Music,
+  },
+  {
     name: 'Whisky SAMBA',
     area: 'Sattva Knowledge City',
     type: 'Bar & Lounge',

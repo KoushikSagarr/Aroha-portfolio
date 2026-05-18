@@ -54,10 +54,6 @@ export default function Repertoire() {
                 <div className="repertoire__reel-icon">
                   <reel.Icon size={20} strokeWidth={1.5} />
                 </div>
-                <div>
-                  <h3 className="repertoire__reel-language">{reel.language}</h3>
-                  <p className="repertoire__reel-song">{reel.song}</p>
-                </div>
               </div>
               <div className="repertoire__reel-embed">
                 <iframe
