@@ -11,16 +11,21 @@ export default defineConfig({
         quality: 80,
       },
       jpeg: {
-        quality: 80,
+        quality: 75,
       },
       jpg: {
-        quality: 80,
+        quality: 75,
+      },
+      JPG: {
+        quality: 75,
       },
       webp: {
-        lossless: true,
+        lossless: false,
+        quality: 80,
       },
       avif: {
-        lossless: true,
+        lossless: false,
+        quality: 75,
       },
     }),
   ],
